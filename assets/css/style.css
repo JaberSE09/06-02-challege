@@ -1,0 +1,7 @@
+header h1{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: blue;
+    margin: 50px;
+}
