@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-<main class="row">
-    <aside class="col-md-2">
-        <h2>Search for a City</h2>
-        <input type="text" id="cityText" name="city" value="San Diego">
-        <button id="search" class="btn btn-toolbar btn-primary">Search</button>
-        <div id="hr"></div>
-        <div id="recentSearch"></div>
-    </aside>
-<div class="col-md-8 d-flex justify-content-center">
-<div id="currentWeather"></div>
-<div id="5Day"></div>
-</div>
-</main>
+    <main class="row">
+        <aside class="col-md-2">
+            <h2>Search for a City</h2>
+            <input type="text" id="cityText" name="city" value="San Diego">
+            <button id="search" class="btn btn-toolbar btn-primary">Search</button>
+            <div id="hr"></div>
+            <div id="recentSearch"></div>
+        </aside>
+        <div id="weather" class="col-md-8 d-flex justify-content-center">
+            <div id="currentWeather"></div>
+            <div id="5Day"></div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
