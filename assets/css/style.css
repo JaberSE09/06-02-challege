@@ -2,7 +2,8 @@ header h1{
     display: flex;
     justify-content: center;
     padding: 30px;
-    background-color: blue;
+    color: aliceblue;
+    background-color: magenta;
     margin: 50px;
 }
 aside{
@@ -18,4 +19,10 @@ aside{
     background-color: black;
     width: 200px;
     margin: 8px 0;
+}
+#weather {
+    padding: 30px;
+}
+#uv{
+    padding: 4px;
 }
