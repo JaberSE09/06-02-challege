@@ -10,7 +10,7 @@ var time = moment().format('(M/D/Y)');
 
 function getCurrentCity(city) {
     currentWeather.replaceChildren()
-    currentWeather.style.border="2px solid black"
+    currentWeather.style.border = "2px solid black"
 
 
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`
@@ -50,17 +50,34 @@ function getCurrentCity(city) {
                     var uvEl = document.createElement("p")
 
 
-                    tempEl.innerHTML ="Temp: " + Math.floor(data.current.temp)+ "°F"
+                    tempEl.innerHTML = "Temp: " + Math.floor(data.current.temp) + "°F"
 
-                    // windEl.innerHTML= "wind: " + data.wind.speed + " MPH"
+                    windEl.innerHTML = "wind: " + data.current.wind_speed + " MPH"
 
-                    // humEl.innerHTML ="Humidity: " + data.main.humidity + " %"
+                    humEl.innerHTML = "Humidity: " + data.current.humidity + " %"
 
-                    // uvEl.innerHTML= "UV Index: " 
 
                     currentWeather.appendChild(tempEl)
-                    // currentWeather.appendChild(windEl)
-                    // currentWeather.appendChild(humEl)
+                    currentWeather.appendChild(windEl)
+                    currentWeather.appendChild(humEl)
+
+
+                    const uvi = Math.floor(data.current.uvi)
+
+                    if (uvi <= 2) {
+                        uvEl.innerHTML = `UV Index: <button class="btn btn-info uv">${uvi}</button>`
+                    } else if (uvi > 2 && uvi <= 5) {
+                        uvEl.innerHTML = `UV Index: <button class="btn btn-success uv">${uvi}</button>`;
+                    } else if (uvi > 5 && uvi <= 8) {
+                        uvEl.innerHTML = `UV Index: <button class="btn btn-warning uv">${uvi}</button>`;
+                    } else {
+                        uvEl.innerHTML = `UV Index: <button class="btn btn-danger uv">${uvi}</button>`;
+                    }
+
+                    currentWeather.appendChild(uvEl)
+
+
+
                     // currentWeather.appendChild(uvEl)
                     console.log(data)
 
