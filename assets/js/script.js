@@ -87,6 +87,8 @@ function getCurrentCity(city) {
                         <div class="p-2 m-2 card bg-info text-white">
                         <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
                         <img src ="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="weather" class="mx-auto">
+                        <p> Temp: ${data.daily[i].temp.day} °F
+                        <p>Humidity: ${data.daily[i].humidity} %</p>
 
                         </div>
                         `
