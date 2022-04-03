@@ -10,7 +10,7 @@ var time = moment().format('(M/D/Y)');
 
 function getCurrentCity(city) {
     currentWeather.replaceChildren()
-    currentWeather.style.border = "2px solid black"
+    weather.style.border = "2px solid black"
 
 
     //openweathermap api
@@ -86,6 +86,7 @@ function getCurrentCity(city) {
                         dailyCard.innerHTML=`
                         <div class="p-2 m-2 card bg-info text-white">
                         <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
+                        <img src ="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="weather" class="mx-auto">
 
                         </div>
                         `
