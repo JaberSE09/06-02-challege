@@ -13,24 +13,26 @@ function getCurrentCity(city) {
     currentWeather.style.border = "2px solid black"
 
 
+    //openweathermap api
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`
 
     fetch(apiUrl)
         .then(function (response) {
 
+            //json the data
             return response.json()
 
         })
         .then(function (data) {
 
 
+            //onecall the url
             const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&appid=${key}`
+            //display title
             var titleEl = document.createElement("h1")
             titleEl.style.fontWeight = "bold"
 
             titleEl.innerHTML = data.name + time
-
-
             var icon = document.createElement("img")
             icon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
             titleEl.appendChild(icon)
@@ -44,6 +46,7 @@ function getCurrentCity(city) {
 
 
 
+                    //display current weather data
                     var tempEl = document.createElement("p")
                     var windEl = document.createElement("p")
                     var humEl = document.createElement("p")
@@ -76,9 +79,22 @@ function getCurrentCity(city) {
 
                     currentWeather.appendChild(uvEl)
 
+                    Day5.innerHTML=""
+
+                    for (let i = 0; i < 5; i++) {
+                        const dailyCard = document.createElement("div")
+                        dailyCard.innerHTML=`
+                        <div class="p-2 m-2 card bg-info text-white">
+                        <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
+
+                        </div>
+                        `
+                        Day5.appendChild(dailyCard)
+                        
+                    }
 
 
-                    // currentWeather.appendChild(uvEl)
+
                     console.log(data)
 
                     console.log(data)
