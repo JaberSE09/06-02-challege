@@ -10,7 +10,7 @@ var time = moment().format('(M/D/Y)');
 
 function getCurrentCity(city) {
     currentWeather.replaceChildren()
-    weather.style.border = "2px solid black"
+   // weather.style.border = "2px solid black"
 
 
     //openweathermap api
