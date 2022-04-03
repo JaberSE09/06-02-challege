@@ -7,12 +7,19 @@ var Day5 = document.getElementById("5Day")
 var weather = document.getElementById("weather")
 const key = "6d9f0ee409c3a4bbba290561246ccf25"
 var time = moment().format('(M/D/Y)');
+var localArray = []
+var localStorage = JSON.parse(localStorage.getItem("searches"));
+
+
+
+
+
+
 
 function getCurrentCity(city) {
-    
-   // weather.style.border = "2px solid black"
 
 
+    setLocalStograge(city)
     //openweathermap api
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`
 
@@ -24,7 +31,8 @@ function getCurrentCity(city) {
 
         })
         .then(function (data) {
-                    currentWeather.innerHTML=""
+
+            currentWeather.innerHTML = ""
 
             //onecall the url
             const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&appid=${key}`
@@ -79,11 +87,11 @@ function getCurrentCity(city) {
 
                     currentWeather.appendChild(uvEl)
 
-                    Day5.innerHTML=""
+                    Day5.innerHTML = ""
 
                     for (let i = 0; i < 5; i++) {
                         const dailyCard = document.createElement("div")
-                        dailyCard.innerHTML=`
+                        dailyCard.innerHTML = `
                         <div class="p-2 m-2 card bg-info text-blac">
                         <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
                         <img src ="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="weather" class="mx-auto">
@@ -93,16 +101,13 @@ function getCurrentCity(city) {
                         </div>
                         `
                         Day5.appendChild(dailyCard)
-                        
+
                     }
 
 
 
-                    console.log(data)
 
-                    console.log(data)
                 })
-
 
         })
         .catch(function (error) {
@@ -111,9 +116,60 @@ function getCurrentCity(city) {
 }
 
 
+
+
+
 getCurrentCity("San Diego")
 
 searchBtn.addEventListener("click", function () {
     getCurrentCity(cityText.value.trim())
+})
+
+
+function setLocalStograge(city) {
+    if (localArray.includes(city)) {
+        return;
+    } else {
+        localArray.push(city);
+
+        // Stores for next user visit
+        localStorage.setItem("searches", JSON.stringify(localArray));
+        
+        // Calls updateSearchHistory to add new search to previous search buttons
+        getLocalStorage();
+    }
 }
-)
+
+
+
+function squash(arr) {
+    let unique = arr.filter((item, i, ar) => ar.indexOf(item) === i);
+    return unique
+
+}
+
+function getLocalStorage() {
+    search = JSON.parse(localStorage.getItem("searches"))
+
+    search = squash(search)
+    console.log(search)
+
+
+
+
+    if (search != null) {
+        recentSearch.innerText=""
+        for (let i = 0; i < search.length; i++) {
+            const button = document.createElement("button")
+            button.classList.add("m-2", "btn", "btn-primary", "col-12" , "row-cols-1")
+            button.innerHTML = search[i]
+            button.addEventListener("click", function () {
+                getCurrentCity(search[i])
+            }
+            )
+
+
+            recentSearch.appendChild(button)
+        }
+    }
+}
