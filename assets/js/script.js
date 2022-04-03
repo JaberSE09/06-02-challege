@@ -9,7 +9,7 @@ const key = "6d9f0ee409c3a4bbba290561246ccf25"
 var time = moment().format('(M/D/Y)');
 
 function getCurrentCity(city) {
-    currentWeather.replaceChildren()
+    
    // weather.style.border = "2px solid black"
 
 
@@ -24,7 +24,7 @@ function getCurrentCity(city) {
 
         })
         .then(function (data) {
-
+                    currentWeather.innerHTML=""
 
             //onecall the url
             const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&appid=${key}`
@@ -84,7 +84,7 @@ function getCurrentCity(city) {
                     for (let i = 0; i < 5; i++) {
                         const dailyCard = document.createElement("div")
                         dailyCard.innerHTML=`
-                        <div class="p-2 m-2 card bg-info text-white">
+                        <div class="p-2 m-2 card bg-info text-blac">
                         <h5>${moment().add(i + 1, "days").format("MM/DD/YYYY")}</h5>
                         <img src ="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png" alt="weather" class="mx-auto">
                         <p> Temp: ${data.daily[i].temp.day} °F
