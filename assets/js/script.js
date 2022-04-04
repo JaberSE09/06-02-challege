@@ -8,7 +8,7 @@ var weather = document.getElementById("weather")
 const key = "6d9f0ee409c3a4bbba290561246ccf25"
 var time = moment().format('(M/D/Y)');
 var localArray = []
-var localStorage = JSON.parse(localStorage.getItem("searches"));
+var search = JSON.parse(localStorage.getItem("searches"))
 
 
 
@@ -19,7 +19,6 @@ var localStorage = JSON.parse(localStorage.getItem("searches"));
 function getCurrentCity(city) {
 
 
-    setLocalStograge(city)
     //openweathermap api
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`
 
@@ -101,6 +100,7 @@ function getCurrentCity(city) {
                         </div>
                         `
                         Day5.appendChild(dailyCard)
+                        setLocalStograge(city)
 
                     }
 
@@ -118,7 +118,7 @@ function getCurrentCity(city) {
 
 
 
-
+getLocalStorage()
 getCurrentCity("San Diego")
 
 searchBtn.addEventListener("click", function () {
@@ -127,6 +127,7 @@ searchBtn.addEventListener("click", function () {
 
 
 function setLocalStograge(city) {
+    localArray.push(search)
     if (localArray.includes(city)) {
         return;
     } else {
@@ -134,10 +135,11 @@ function setLocalStograge(city) {
 
         // Stores for next user visit
         localStorage.setItem("searches", JSON.stringify(localArray));
-        
+        console.log(localStorage)
         // Calls updateSearchHistory to add new search to previous search buttons
-        getLocalStorage();
+        
     }
+    getLocalStorage();
 }
 
 
@@ -149,7 +151,6 @@ function squash(arr) {
 }
 
 function getLocalStorage() {
-    search = JSON.parse(localStorage.getItem("searches"))
 
     search = squash(search)
     console.log(search)
