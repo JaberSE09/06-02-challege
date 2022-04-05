@@ -12,14 +12,15 @@ var search;
 
 
 
-
-
+//functions
+//get the cureent city and displays weather and 5 day weather
 function getCurrentCity(city) {
 
 
     //openweathermap api
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`
 
+    //fetch the api url
     fetch(apiUrl)
         .then(function (response) {
 
@@ -29,6 +30,7 @@ function getCurrentCity(city) {
         })
         .then(function (data) {
 
+            //setup the current weather section
             currentWeather.innerHTML = ""
 
             //onecall the url
@@ -72,6 +74,7 @@ function getCurrentCity(city) {
 
                     const uvi = Math.floor(data.current.uvi)
 
+    
                     if (uvi <= 2) {
                         uvEl.innerHTML = `UV Index: <button class="btn btn-info uv">${uvi}</button>`
                     } else if (uvi > 2 && uvi <= 5) {
@@ -112,16 +115,6 @@ function getCurrentCity(city) {
 }
 
 
-
-
-getLocalStorage()
-getCurrentCity("San Diego")
-
-searchBtn.addEventListener("click", function () {
-    getCurrentCity(cityText.value.trim())
-    setLocalStograge(cityText.value.trim())
-
-})
 
 
 function setLocalStograge(city) {
@@ -172,3 +165,13 @@ function getLocalStorage() {
         }
     }
 }
+
+//start 
+getLocalStorage()
+getCurrentCity("San Diego")
+
+searchBtn.addEventListener("click", function () {
+    getCurrentCity(cityText.value.trim())
+    setLocalStograge(cityText.value.trim())
+
+})
