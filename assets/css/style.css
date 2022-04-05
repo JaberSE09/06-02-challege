@@ -20,9 +20,10 @@ aside{
     width: 200px;
     margin: 8px 0;
 }
-#weather {
+#currentWeather {
     padding: 30px;
 }
 #uv{
     padding: 4px;
 }
+
