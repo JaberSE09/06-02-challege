@@ -8,9 +8,7 @@ var weather = document.getElementById("weather")
 const key = "6d9f0ee409c3a4bbba290561246ccf25"
 var time = moment().format('(M/D/Y)');
 var localArray = []
-var search = JSON.parse(localStorage.getItem("searches"))
-
-
+var search;
 
 
 
@@ -100,8 +98,6 @@ function getCurrentCity(city) {
                         </div>
                         `
                         Day5.appendChild(dailyCard)
-                        setLocalStograge(city)
-
                     }
 
 
@@ -123,11 +119,15 @@ getCurrentCity("San Diego")
 
 searchBtn.addEventListener("click", function () {
     getCurrentCity(cityText.value.trim())
+    setLocalStograge(cityText.value.trim())
+
 })
 
 
 function setLocalStograge(city) {
-    localArray.push(search)
+    for (let i = 0; i < search.length; i++) {
+        localArray.push(search[i])
+    }
     if (localArray.includes(city)) {
         return;
     } else {
@@ -145,18 +145,16 @@ function setLocalStograge(city) {
 
 
 function squash(arr) {
+    if(arr != null){
     let unique = arr.filter((item, i, ar) => ar.indexOf(item) === i);
-    return unique
-
+    return unique}
+    else{
+        return []
+    }
 }
 
 function getLocalStorage() {
-
-    search = squash(search)
-    console.log(search)
-
-
-
+    search = squash(JSON.parse(localStorage.getItem("searches")))
 
     if (search != null) {
         recentSearch.innerText=""
