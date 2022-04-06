@@ -153,7 +153,7 @@ function getLocalStorage() {
         recentSearch.innerText=""
         for (let i = 0; i < search.length; i++) {
             const button = document.createElement("button")
-            button.classList.add("m-2", "btn", "btn-primary", "col-12" , "row-cols-1")
+            button.classList.add("m-2", "btn", "btn-primary", "brn-block" , "row-cols-1" , "col-md-6" )
             button.innerHTML = search[i]
             button.addEventListener("click", function () {
                 getCurrentCity(search[i])
