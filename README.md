@@ -23,8 +23,8 @@ https://jaberse09.github.io/06-02-challege/ is tje link to the live website and 
 
 
 
-    !["the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast" ]
-    ("https://github.com/JaberSE09/06-02-challege/blob/main/assets/images/fullimage.png")
+    ![the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast]
+    (https://github.com/JaberSE09/06-02-challege/blob/main/assets/images/fullimage.png?raw=true)
 
     ```md
     ![The search results are stored under the search button and are updated when the new results are made](assets/images/searchresults.png)
