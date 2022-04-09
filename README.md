@@ -13,29 +13,17 @@ Use the OpenWeather One Call API to retrieve weather data for cities. Built this
 
 ## Installation
 
-First you would have to run the 
-git clone https://github.com/JaberSE09/06-02-challege.git and run the index.html file.
+First you would have to run the
+git clone <https://github.com/JaberSE09/06-02-challege.git> and run the index.html file.
 
 ## Usage
-https://jaberse09.github.io/06-02-challege/ is tje link to the live website and https://github.com/JaberSE09/06-02-challege is the link to the code on github.
+https://jaberse09.github.io/06-02-challege/ is tje link to the live website and <https://github.com/JaberSE09/06-02-challege> is the link to the code on github.
 
+<img src= "./assets/images/fullimage.png" alt="the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast">
 
+<img src="./assets/images/searchresults.png" alt="The search results are stored under the search button and are updated when the new results are made">
 
-
-
-    ![the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast]
-    (https://github.com/JaberSE09/06-02-challege/blob/main/assets/images/fullimage.png?raw=true)
-
-    ```md
-    ![The search results are stored under the search button and are updated when the new results are made](assets/images/searchresults.png)
-    ```
-
-
-    ```md
-    ![Each result is put into its own line and can be clicked to go to that results page](assets/images/newyork.png)
-    ```
-
-
+<img src="./assets/images/newyork.png" alt="Each result is put into its own line and can be clicked to go to that results page">
 
 ## Credits
 
