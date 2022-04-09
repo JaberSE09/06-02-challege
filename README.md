@@ -24,7 +24,8 @@ https://jaberse09.github.io/06-02-challege/ is tje link to the live website and 
 
 
     ```md
-    ![the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast ](assets/images/fullimage.png)
+    ![the web app starts out with San Diego as the search result and shows the current weather and 5 day forcast ](!(https://github.com/jaberse09/jaberse09.github.io/06-02-challege/blob/main/assets/images/fullimage.png)
+)
     ```
 
     ```md
